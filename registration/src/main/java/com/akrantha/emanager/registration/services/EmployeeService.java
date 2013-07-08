@@ -1,5 +1,6 @@
 package com.akrantha.emanager.registration.services;
 
+import java.util.Date;
 import java.util.List;
 
 import com.akrantha.emanager.registration.dtos.Employee;
@@ -10,6 +11,13 @@ public class EmployeeService {
 
     public EmployeeService(InMemoryTable<Employee> employeeTable) {
         this.employeeTable = employeeTable;
+
+        Employee e = new Employee();
+        e.setDob(new Date());
+        e.setName("Phani Kumar");
+        e.setEmail("phani@gmail.com");
+        e.setExtn("33243");
+        createEmployee(e);
     }
 
     public int createEmployee(Employee employee) {
