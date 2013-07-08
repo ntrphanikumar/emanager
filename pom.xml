@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>registration</module>
+        <module>uat-jbehave</module>
     </modules>
 
     <properties>
