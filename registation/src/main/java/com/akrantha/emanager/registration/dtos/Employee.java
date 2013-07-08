@@ -6,6 +6,8 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.akrantha.emanager.registration.services.InMemoryTable.InMemoryPersistable;
+
 @XmlRootElement(name = "Employee")
 public class Employee implements InMemoryPersistable, Serializable {
     private static final long serialVersionUID = -1738373669527745443L;

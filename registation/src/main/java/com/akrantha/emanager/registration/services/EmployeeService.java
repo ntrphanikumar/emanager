@@ -16,7 +16,8 @@ public class EmployeeService {
         return employeeTable.insert(employee);
     }
 
-    public void updateEmployee(Employee employee) {
+    public void updateEmployee(int id, Employee employee) {
+        employee.setId(id);
         employeeTable.update(employee);
     }
 

@@ -4,11 +4,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import com.akrantha.emanager.registration.dtos.InMemoryPersistable;
+import com.akrantha.emanager.registration.services.InMemoryTable.InMemoryPersistable;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 public class InMemoryTable<T extends InMemoryPersistable> {
+
+    public interface InMemoryPersistable {
+        void setId(int id);
+
+        int getId();
+    }
 
     private final AtomicInteger id = new AtomicInteger(0);
 
