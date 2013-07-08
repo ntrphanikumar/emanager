@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util 
+http://www.springframework.org/schema/util/spring-util-3.0.xsd
+http://cxf.apache.org/jaxrs
+http://cxf.apache.org/schemas/jaxrs.xsd"
+	default-lazy-init="false">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-jaxrs-binding.xml" />
+	<jaxrs:server id="bluebells-api" address="/">
+		<jaxrs:serviceBeans>
+			<ref bean="employeeRestService"/>
+		</jaxrs:serviceBeans>
+		<jaxrs:extensionMappings>
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:providers>
+		    <ref bean="webApplicationExceptionMapper"/>
+            <ref bean="jacksonJsonProvider"/>
+        </jaxrs:providers>
+	</jaxrs:server>
+
+	<bean id="employeeRestService" class="com.akrantha.emanager.registration.restservices.EmployeeRestService" >
+		<constructor-arg ref="employeeService"/>
+	</bean>
+    
+    <bean id="employeeService" class="com.akrantha.emanager.registration.services.EmployeeService">
+        <constructor-arg>
+            <bean class="com.akrantha.emanager.registration.services.InMemoryTable"/>
+        </constructor-arg>
+    </bean>
+	
+	<bean id="jacksonJsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider">
+		<property name="mapper" ref="jacksonMapper" />
+	</bean>
+	
+	<bean id="jacksonMapper" class="org.codehaus.jackson.map.ObjectMapper"/>
+	
+	<bean id="webApplicationExceptionMapper" class="org.apache.cxf.jaxrs.impl.WebApplicationExceptionMapper"/>
+
+</beans>

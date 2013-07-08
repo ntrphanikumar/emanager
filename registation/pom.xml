@@ -6,7 +6,8 @@
         <artifactId>emanager</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>registation</artifactId>
+    <artifactId>registration</artifactId>
+    <packaging>war</packaging>
     <dependencies>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -70,4 +71,31 @@
             <artifactId>jackson-jaxrs</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>emanager</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>build-emanager-registration-jar</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>${jar.name}</finalName>
+                            <classifier>classes</classifier>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources/spring</directory>
+            </resource>
+        </resources>
+    </build>
 </project>
