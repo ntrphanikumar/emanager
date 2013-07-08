@@ -8,6 +8,14 @@
     </parent>
     <artifactId>uat-jbehave</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.jbehave</groupId>
+            <artifactId>jbehave-core</artifactId>
+            <version>3.8</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
