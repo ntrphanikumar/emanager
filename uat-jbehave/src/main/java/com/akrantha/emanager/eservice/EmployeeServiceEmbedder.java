@@ -37,7 +37,7 @@ public class EmployeeServiceEmbedder extends InjectableEmbedder {
     @Test
     public void run() {
         List<String> storyPaths = new StoryFinder().findPaths(
-                codeLocationFromClass(this.getClass()), "**/*.story", "");
+                codeLocationFromClass(this.getClass()), "**/eservice/*.story", "");
         injectedEmbedder().runStoriesAsPaths(storyPaths);
     }
 
