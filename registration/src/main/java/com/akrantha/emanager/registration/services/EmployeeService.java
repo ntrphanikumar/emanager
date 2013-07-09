@@ -24,7 +24,7 @@ public class EmployeeService {
     private void validateEmployee(Employee employee) {
         checkArgument(isNotBlank(employee.getName()), "Employee name cannot be empty");
         checkArgument(isNotBlank(employee.getEmail()), "Employee email cannot be empty");
-        checkNotNull(employee.getDob(), "Date of borth cannot be null");
+        checkNotNull(employee.getDob(), "Date of birth cannot be null");
     }
 
     public void updateEmployee(int id, Employee employee) {
