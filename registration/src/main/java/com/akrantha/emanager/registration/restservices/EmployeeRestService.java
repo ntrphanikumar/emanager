@@ -1,7 +1,5 @@
 package com.akrantha.emanager.registration.restservices;
 
-import java.util.List;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -12,7 +10,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.akrantha.emanager.registration.dtos.Employee;
+import com.akrantha.emanager.dtos.Employee;
+import com.akrantha.emanager.dtos.EmployeeCollection;
 import com.akrantha.emanager.registration.services.EmployeeService;
 
 @Path("/employees")
@@ -48,8 +47,10 @@ public class EmployeeRestService {
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public List<Employee> getEmployees() {
-        return employeeService.getEmployees();
+    public EmployeeCollection getEmployees() {
+        EmployeeCollection employeeCollection = new EmployeeCollection();
+        employeeCollection.setEmployees(employeeService.getEmployees());
+        return employeeCollection;
     }
 
     @PUT

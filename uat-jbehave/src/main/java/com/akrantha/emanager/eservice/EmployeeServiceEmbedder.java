@@ -12,12 +12,12 @@ import java.util.List;
 import org.jbehave.core.InjectableEmbedder;
 import org.jbehave.core.annotations.Configure;
 import org.jbehave.core.annotations.UsingEmbedder;
-import org.jbehave.core.annotations.UsingSteps;
+import org.jbehave.core.annotations.spring.UsingSpring;
 import org.jbehave.core.embedder.Embedder;
 import org.jbehave.core.embedder.StoryControls;
 import org.jbehave.core.io.LoadFromClasspath;
 import org.jbehave.core.io.StoryFinder;
-import org.jbehave.core.junit.AnnotatedEmbedderRunner;
+import org.jbehave.core.junit.spring.SpringAnnotatedEmbedderRunner;
 import org.jbehave.core.parsers.RegexPrefixCapturingPatternParser;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.ParameterConverters.DateConverter;
@@ -29,15 +29,15 @@ import com.akrantha.emanager.eservice.EmployeeServiceEmbedder.MyReportBuilder;
 import com.akrantha.emanager.eservice.EmployeeServiceEmbedder.MyStoryControls;
 import com.akrantha.emanager.eservice.EmployeeServiceEmbedder.MyStoryLoader;
 
-@RunWith(AnnotatedEmbedderRunner.class)
+@RunWith(SpringAnnotatedEmbedderRunner.class)
 @Configure(storyControls = MyStoryControls.class, storyLoader = MyStoryLoader.class, parameterConverters = { MyDateConverter.class }, storyReporterBuilder = MyReportBuilder.class)
 @UsingEmbedder(embedder = Embedder.class, generateViewAfterStories = true, ignoreFailureInStories = true, ignoreFailureInView = true, verboseFailures = true, storyTimeoutInSecs = 100, threads = 2, metaFilters = "-skip")
-@UsingSteps(instances = {})
+@UsingSpring(resources = { "eservice/spring/steps.xml" })
 public class EmployeeServiceEmbedder extends InjectableEmbedder {
     @Test
     public void run() {
         List<String> storyPaths = new StoryFinder().findPaths(
-                codeLocationFromClass(this.getClass()), "**/eservice/*.story", "");
+                codeLocationFromClass(this.getClass()), "eservice/stories/*.story", "");
         injectedEmbedder().runStoriesAsPaths(storyPaths);
     }
 

@@ -10,6 +10,10 @@
     <packaging>war</packaging>
     <dependencies>
         <dependency>
+            <groupId>com.akrantha.emanager</groupId>
+            <artifactId>dtos</artifactId>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
@@ -81,7 +85,7 @@
     </dependencies>
 
     <build>
-        <finalName>emanager</finalName>
+        <finalName>emanager-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -92,10 +96,6 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
-                        <configuration>
-                            <finalName>${jar.name}</finalName>
-                            <classifier>classes</classifier>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

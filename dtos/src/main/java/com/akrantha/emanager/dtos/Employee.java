@@ -1,12 +1,10 @@
-package com.akrantha.emanager.registration.dtos;
+package com.akrantha.emanager.dtos;
 
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import com.akrantha.emanager.registration.services.InMemoryTable.InMemoryPersistable;
 
 @XmlRootElement(name = "Employee")
 public class Employee implements InMemoryPersistable, Serializable {

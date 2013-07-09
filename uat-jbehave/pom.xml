@@ -10,6 +10,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.akrantha.emanager</groupId>
+            <artifactId>dtos</artifactId>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
@@ -25,13 +29,17 @@
             <groupId>org.jbehave</groupId>
             <artifactId>jbehave-spring</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.2.5</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.8</version>
                 <executions>
                     <execution>
                         <goals>
@@ -55,11 +63,11 @@
                         <configuration>
                             <daemon>true</daemon>
                             <contextPath>/</contextPath>
-                            <webAppSourceDirectory>../registration/target/emanager</webAppSourceDirectory>
+                            <webAppSourceDirectory>../registration/target/emanager-${project.version}</webAppSourceDirectory>
                             <connectors>
                                 <connector
                                     implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-                                    <port>${jetty.port}</port>
+                                    <port>9090</port>
                                     <maxIdleTime>60000</maxIdleTime>
                                 </connector>
                             </connectors>
@@ -73,14 +81,17 @@
             <plugin>
                 <groupId>org.jbehave</groupId>
                 <artifactId>jbehave-maven-plugin</artifactId>
-                <version>${jbehave.version}</version>
+                <version>3.8</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Embedder.java</include>
+                    </includes>
+                    <ignoreFailureInStories>true</ignoreFailureInStories>
+                    <ignoreFailureInView>false</ignoreFailureInView>
+                </configuration>
                 <executions>
                     <execution>
                         <phase>integration-test</phase>
-                        <configuration>
-                            <ignoreFailureInStories>true</ignoreFailureInStories>
-                            <ignoreFailureInView>false</ignoreFailureInView>
-                        </configuration>
                         <goals>
                             <goal>run-stories-with-annotated-embedder</goal>
                         </goals>

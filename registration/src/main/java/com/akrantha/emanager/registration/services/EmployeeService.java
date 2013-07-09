@@ -3,7 +3,7 @@ package com.akrantha.emanager.registration.services;
 import java.util.Date;
 import java.util.List;
 
-import com.akrantha.emanager.registration.dtos.Employee;
+import com.akrantha.emanager.dtos.Employee;
 
 public class EmployeeService {
 

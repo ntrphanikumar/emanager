@@ -10,6 +10,7 @@
     <modules>
         <module>registration</module>
         <module>uat-jbehave</module>
+        <module>dtos</module>
     </modules>
 
     <properties>
@@ -29,6 +30,11 @@
         <dependencies>
             <dependency>
                 <groupId>com.akrantha.emanager</groupId>
+                <artifactId>dtos</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.akrantha.emanager</groupId>
                 <artifactId>registration</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -36,7 +42,6 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
-                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.cxf</groupId>
@@ -259,7 +264,7 @@
                         <artifactId>maven-jetty-plugin</artifactId>
                         <configuration>
                             <contextPath>/</contextPath>
-                            <webAppSourceDirectory>registration/target/emanager</webAppSourceDirectory>
+                            <webAppSourceDirectory>registration/target/emanager-${project.version}</webAppSourceDirectory>
                         </configuration>
                     </plugin>
                 </plugins>
