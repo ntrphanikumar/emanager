@@ -1,4 +1,4 @@
-package com.akrantha.emanager.registration.restservices;
+package com.akrantha.emanager.registration.rest.services;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;

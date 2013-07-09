@@ -1,6 +1,7 @@
 package com.akrantha.emanager.eservice.steps;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.xml.bind.JAXBException;
 
@@ -8,6 +9,7 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
+import com.akrantha.emanager.dtos.Employee;
 import com.akrantha.emanager.eservice.EmployeeService;
 
 public class FirstStep {
@@ -26,7 +28,13 @@ public class FirstStep {
 
     @When("step represents the occurrence of the event")
     public void whenStepRepresentsTheOccurrenceOfTheEvent() {
-        // PENDING
+        Employee employee = new Employee();
+        employee.setDob(new Date());
+        employee.setEmail("phanik@imaginea.com");
+        employee.setExtn("323434");
+        employee.setName("N T R Phani Kumar");
+        Employee createEmployee = employeeService.createEmployee(employee);
+        System.out.println(createEmployee.getName());
     }
 
     @Then("step represents the outcome of the event")
