@@ -64,7 +64,7 @@ http://cxf.apache.org/schemas/jaxrs.xsd"
         class="org.apache.cxf.jaxrs.impl.WebApplicationExceptionMapper" />
 
     <bean id="errorResponseBuilder"
-        class="com.akrantha.emanager.registration.rest.responsebuilder.ErrorResponseBuilder">
+        class="com.akrantha.emanager.registration.rest.exceptions.responsebuilder.ErrorResponseBuilder">
         <constructor-arg ref="marshaller"/>
     </bean>
     

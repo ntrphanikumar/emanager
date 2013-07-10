@@ -1,4 +1,4 @@
-package com.akrantha.emanager.registration.rest.responsebuilder;
+package com.akrantha.emanager.registration.rest.exceptions.responsebuilder;
 
 import java.io.StringWriter;
 

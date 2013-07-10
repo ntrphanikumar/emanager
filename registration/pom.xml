@@ -107,6 +107,14 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
+                <configuration>
+                            <instrumentation>
+                                <excludes>
+                                    <exclude>com/akrantha/emanager/registration/rest/exceptionmapper/*.class</exclude>
+                                    <exclude>com/akrantha/emanager/registration/rest/exceptions/**/*.class</exclude>                                    
+                                </excludes>
+                            </instrumentation>
+                        </configuration>
             </plugin>
         </plugins>
         <resources>

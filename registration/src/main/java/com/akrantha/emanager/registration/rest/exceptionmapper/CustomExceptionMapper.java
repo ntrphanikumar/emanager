@@ -12,7 +12,7 @@ import org.apache.cxf.jaxrs.impl.WebApplicationExceptionMapper;
 
 import com.akrantha.emanager.registration.rest.exceptions.ErrorCode;
 import com.akrantha.emanager.registration.rest.exceptions.RestServiceException;
-import com.akrantha.emanager.registration.rest.responsebuilder.ErrorResponseBuilder;
+import com.akrantha.emanager.registration.rest.exceptions.responsebuilder.ErrorResponseBuilder;
 
 @Provider
 public class CustomExceptionMapper implements ExceptionMapper<Throwable> {
