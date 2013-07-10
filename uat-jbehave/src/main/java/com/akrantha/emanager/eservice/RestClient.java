@@ -63,7 +63,9 @@ public class RestClient {
             httpPost.setEntity(new ByteArrayEntity(writer.getBuffer().toString().getBytes(),
                     ContentType.APPLICATION_XML));
             return buildFromResponse(httpClient.execute(httpPost));
-        } catch (JAXBException | IOException e) {
+        } catch (JAXBException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -73,7 +75,9 @@ public class RestClient {
         Object obj = null;
         try {
             obj = unmarshaller.unmarshal(response.getEntity().getContent());
-        } catch (IOException | JAXBException e) {
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (JAXBException e) {
             throw new RuntimeException(e);
         }
         if (obj instanceof ErrorDTO) {
