@@ -21,21 +21,15 @@ public class EmployeeService {
         return employeeTable.insert(employee);
     }
 
-    private void validateEmployee(Employee employee) {
-        checkArgument(isNotBlank(employee.getName()), "Employee name cannot be empty");
-        checkArgument(isNotBlank(employee.getEmail()), "Employee email cannot be empty");
-        checkNotNull(employee.getDob(), "Date of birth cannot be null");
-    }
-
     public void updateEmployee(int id, Employee employee) {
-        checkArgument(id > 0, "Id should be positive number");
+        validateEmployeeId(id);
         validateEmployee(employee);
         employee.setId(id);
         employeeTable.update(employee);
     }
 
     public Employee deleteEmployee(int id) {
-        checkArgument(id > 0, "Id should be positive number");
+        validateEmployeeId(id);
         return employeeTable.delete(id);
     }
 
@@ -44,8 +38,19 @@ public class EmployeeService {
     }
 
     public Employee getEmployeeById(int id) {
-        checkArgument(id > 0, "Id should be positive number");
+        validateEmployeeId(id);
         return employeeTable.getById(id);
+    }
+
+    private void validateEmployeeId(int id) {
+        checkArgument(id > 0, "Id should be positive number");
+        checkNotNull(employeeTable.getById(id), "No employee exists with id: " + id);
+    }
+
+    private void validateEmployee(Employee employee) {
+        checkArgument(isNotBlank(employee.getName()), "Employee name cannot be empty");
+        checkArgument(isNotBlank(employee.getEmail()), "Employee email cannot be empty");
+        checkNotNull(employee.getDob(), "Date of birth cannot be null");
     }
 
 }
