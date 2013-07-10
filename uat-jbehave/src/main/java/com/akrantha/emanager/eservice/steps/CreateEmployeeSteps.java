@@ -4,7 +4,7 @@ import org.jbehave.core.annotations.When;
 
 import com.akrantha.emanager.dtos.Employee;
 import com.akrantha.emanager.eservice.EmployeeService;
-import com.akrantha.emanager.eservice.RestClientException;
+import com.akrantha.emanager.restclient.RestClientException;
 
 public class CreateEmployeeSteps extends AbstractEServiceSteps {
 

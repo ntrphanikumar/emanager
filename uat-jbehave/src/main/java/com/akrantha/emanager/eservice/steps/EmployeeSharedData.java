@@ -48,7 +48,6 @@ public class EmployeeSharedData {
     }
 
     public void setEmployee(Employee employee) {
-        System.out.println(employee);
         this.employee = employee;
     }
 

@@ -2,6 +2,7 @@ package com.akrantha.emanager.eservice;
 
 import com.akrantha.emanager.dtos.Employee;
 import com.akrantha.emanager.dtos.EmployeeCollection;
+import com.akrantha.emanager.restclient.RestClient;
 
 public class EmployeeService {
 

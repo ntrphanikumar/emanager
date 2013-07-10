@@ -1,4 +1,4 @@
-package com.akrantha.emanager.eservice;
+package com.akrantha.emanager.restclient;
 
 import java.io.IOException;
 import java.io.StringWriter;

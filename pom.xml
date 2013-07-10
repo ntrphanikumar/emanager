@@ -11,6 +11,7 @@
         <module>registration</module>
         <module>uat-jbehave</module>
         <module>dtos</module>
+        <module>restclient</module>
     </modules>
 
     <properties>
@@ -72,6 +73,11 @@
             <dependency>
                 <groupId>com.akrantha.emanager</groupId>
                 <artifactId>registration</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.akrantha.emanager</groupId>
+                <artifactId>restclient</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

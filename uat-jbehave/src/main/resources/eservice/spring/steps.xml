@@ -9,28 +9,6 @@ http://www.springframework.org/schema/util
 http://www.springframework.org/schema/util/spring-util-3.0.xsd"
     default-lazy-init="false">
 
-    <bean id="jaxbContext" class="javax.xml.bind.JAXBContext"
-        factory-method="newInstance">
-        <constructor-arg>
-            <list>
-                <value type="java.lang.Class">com.akrantha.emanager.dtos.ErrorDTO</value>
-                <value type="java.lang.Class">com.akrantha.emanager.dtos.EmployeeCollection</value>
-            </list>
-        </constructor-arg>
-    </bean>
-
-    <bean id="restClient" class="com.akrantha.emanager.eservice.RestClient">
-        <constructor-arg>
-            <bean class="org.apache.http.impl.client.DefaultHttpClient" />
-        </constructor-arg>
-        <constructor-arg value="http://localhost:9090/api" />
-        <constructor-arg ref="jaxbContext"/>
-    </bean>
-
-    <bean id="employeeService" class="com.akrantha.emanager.eservice.EmployeeService">
-        <constructor-arg ref="restClient" />
-    </bean>
-
     <bean id="employeeSharedData" class="com.akrantha.emanager.eservice.steps.EmployeeSharedData"/>
 
     <bean abstract="true" id="abstractEServiceSteps" class="com.akrantha.emanager.eservice.steps.AbstractEServiceSteps">

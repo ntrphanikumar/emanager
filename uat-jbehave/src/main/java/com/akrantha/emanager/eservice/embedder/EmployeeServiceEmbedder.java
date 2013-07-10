@@ -1,4 +1,4 @@
-package com.akrantha.emanager.eservice;
+package com.akrantha.emanager.eservice.embedder;
 
 import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
 import static org.jbehave.core.reporters.Format.CONSOLE;
@@ -24,16 +24,16 @@ import org.jbehave.core.steps.ParameterConverters.DateConverter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.akrantha.emanager.eservice.EmployeeServiceEmbedder.MyDateConverter;
-import com.akrantha.emanager.eservice.EmployeeServiceEmbedder.MyRegexPrefixCapturingPatternParser;
-import com.akrantha.emanager.eservice.EmployeeServiceEmbedder.MyReportBuilder;
-import com.akrantha.emanager.eservice.EmployeeServiceEmbedder.MyStoryControls;
-import com.akrantha.emanager.eservice.EmployeeServiceEmbedder.MyStoryLoader;
+import com.akrantha.emanager.eservice.embedder.EmployeeServiceEmbedder.MyDateConverter;
+import com.akrantha.emanager.eservice.embedder.EmployeeServiceEmbedder.MyRegexPrefixCapturingPatternParser;
+import com.akrantha.emanager.eservice.embedder.EmployeeServiceEmbedder.MyReportBuilder;
+import com.akrantha.emanager.eservice.embedder.EmployeeServiceEmbedder.MyStoryControls;
+import com.akrantha.emanager.eservice.embedder.EmployeeServiceEmbedder.MyStoryLoader;
 
 @RunWith(SpringAnnotatedEmbedderRunner.class)
 @Configure(storyControls = MyStoryControls.class, storyLoader = MyStoryLoader.class, parameterConverters = { MyDateConverter.class }, storyReporterBuilder = MyReportBuilder.class, stepPatternParser = MyRegexPrefixCapturingPatternParser.class)
 @UsingEmbedder(embedder = Embedder.class, generateViewAfterStories = true, ignoreFailureInStories = true, ignoreFailureInView = true, verboseFailures = true, storyTimeoutInSecs = 100, threads = 1, metaFilters = "-skip")
-@UsingSpring(resources = { "eservice/spring/steps.xml" })
+@UsingSpring(resources = { "spring/restclientservices.xml", "eservice/spring/steps.xml" })
 public class EmployeeServiceEmbedder extends InjectableEmbedder {
     @Test
     public void run() {
