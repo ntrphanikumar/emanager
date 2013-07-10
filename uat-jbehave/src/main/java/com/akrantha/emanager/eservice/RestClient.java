@@ -13,6 +13,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.ContentType;
@@ -85,5 +86,21 @@ public class RestClient {
         }
         return (T) obj;
 
+    }
+
+    public <T> T doPut(String url, Object object) {
+        try {
+            HttpPut httpPut = new HttpPut(apiBaseUrl + url);
+            xmlHeaders(httpPut);
+            StringWriter writer = new StringWriter();
+            marshaller.marshal(object, writer);
+            httpPut.setEntity(new ByteArrayEntity(writer.getBuffer().toString().getBytes(),
+                    ContentType.APPLICATION_XML));
+            return buildFromResponse(httpClient.execute(httpPut));
+        } catch (JAXBException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

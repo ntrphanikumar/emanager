@@ -23,4 +23,8 @@ public class EmployeeService {
     public Employee createEmployee(Employee employee) {
         return restClient.doPost(EMPLOYEES_URL, employee);
     }
+
+    public Employee updateEmployee(Employee employee) {
+        return restClient.doPut(EMPLOYEES_URL + employee.getId(), employee);
+    }
 }

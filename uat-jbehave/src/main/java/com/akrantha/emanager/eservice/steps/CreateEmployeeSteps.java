@@ -1,10 +1,5 @@
 package com.akrantha.emanager.eservice.steps;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.is;
-
-import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
 import com.akrantha.emanager.dtos.Employee;
@@ -43,15 +38,9 @@ public class CreateEmployeeSteps extends AbstractEServiceSteps {
         createEmployee(buildRequestEmployee(NAME, EMAIL, DOB, EXTN));
     }
 
-    @Then("I should get created employee in response with all provided details filled")
-    public void thenIShouldGetCreatedEmployeeInResponseWithAllProvidedDetailsFilled() {
-        assertThat(getEmployeeSharedData().getResponseEmployee().getId(), is(greaterThan(0)));
-        assertThat(getEmployeeSharedData().getResponseEmployee(), is(getEmployeeSharedData()
-                .getRequestEmployee()));
-    }
-
     private void createEmployee(Employee employee) {
         try {
+            getEmployeeSharedData().setRequestEmployee(employee);
             employee = getEmployeeService().createEmployee(employee);
             getEmployeeSharedData().setResponseEmployee(employee);
         } catch (RestClientException e) {

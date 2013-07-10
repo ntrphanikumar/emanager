@@ -5,7 +5,7 @@ import com.akrantha.emanager.dtos.EmployeeCollection;
 import com.akrantha.emanager.dtos.ErrorDTO;
 
 public class EmployeeSharedData {
-    private Employee requestEmployee, responseEmployee;
+    private Employee requestEmployee, responseEmployee, employee;
 
     private EmployeeCollection employeeCollection;
 
@@ -41,6 +41,15 @@ public class EmployeeSharedData {
 
     public void setError(ErrorDTO error) {
         this.error = error;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        System.out.println(employee);
+        this.employee = employee;
     }
 
 }

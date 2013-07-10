@@ -31,14 +31,16 @@ http://www.springframework.org/schema/util/spring-util-3.0.xsd"
         <constructor-arg ref="restClient" />
     </bean>
 
+    <bean id="employeeSharedData" class="com.akrantha.emanager.eservice.steps.EmployeeSharedData"/>
+
     <bean abstract="true" id="abstractEServiceSteps" class="com.akrantha.emanager.eservice.steps.AbstractEServiceSteps">
         <constructor-arg ref="employeeService"/>
-        <constructor-arg>
-            <bean class="com.akrantha.emanager.eservice.steps.EmployeeSharedData"/>
-        </constructor-arg>
+        <constructor-arg ref="employeeSharedData"/>
     </bean>
 
     <bean class="com.akrantha.emanager.eservice.steps.CreateEmployeeSteps" parent="abstractEServiceSteps"/>
+    
+    <bean class="com.akrantha.emanager.eservice.steps.UpdateEmployeeSteps" parent="abstractEServiceSteps"/>
     
     <bean class="com.akrantha.emanager.eservice.steps.BeforeSteps" parent="abstractEServiceSteps"/> 
 </beans>

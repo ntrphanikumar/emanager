@@ -1,6 +1,7 @@
 package com.akrantha.emanager.eservice.steps;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
 
 import java.util.Date;
@@ -45,6 +46,13 @@ public abstract class AbstractEServiceSteps {
     @Then("I should get error response with error description as '%message'")
     public void thenIShouldGetError(String message) {
         assertThat(getEmployeeSharedData().getError().getDescription(), is(message));
+    }
+
+    @Then("I should get %etype employee in response with all provided details filled")
+    public void thenIShouldGetCreatedEmployeeInResponseWithAllProvidedDetailsFilled() {
+        assertThat(getEmployeeSharedData().getResponseEmployee().getId(), is(greaterThan(0)));
+        assertThat(getEmployeeSharedData().getResponseEmployee(), is(getEmployeeSharedData()
+                .getRequestEmployee()));
     }
 
     protected Employee buildRequestEmployee(String name, String email, Date dob, String extn) {

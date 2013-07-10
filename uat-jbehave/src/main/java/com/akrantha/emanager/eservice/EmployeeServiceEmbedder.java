@@ -32,7 +32,7 @@ import com.akrantha.emanager.eservice.EmployeeServiceEmbedder.MyStoryLoader;
 
 @RunWith(SpringAnnotatedEmbedderRunner.class)
 @Configure(storyControls = MyStoryControls.class, storyLoader = MyStoryLoader.class, parameterConverters = { MyDateConverter.class }, storyReporterBuilder = MyReportBuilder.class, stepPatternParser = MyRegexPrefixCapturingPatternParser.class)
-@UsingEmbedder(embedder = Embedder.class, generateViewAfterStories = true, ignoreFailureInStories = true, ignoreFailureInView = true, verboseFailures = true, storyTimeoutInSecs = 100, threads = 2, metaFilters = "-skip")
+@UsingEmbedder(embedder = Embedder.class, generateViewAfterStories = true, ignoreFailureInStories = true, ignoreFailureInView = true, verboseFailures = true, storyTimeoutInSecs = 100, threads = 1, metaFilters = "-skip")
 @UsingSpring(resources = { "eservice/spring/steps.xml" })
 public class EmployeeServiceEmbedder extends InjectableEmbedder {
     @Test
