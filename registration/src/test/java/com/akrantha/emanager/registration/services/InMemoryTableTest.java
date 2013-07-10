@@ -1,13 +1,17 @@
 package com.akrantha.emanager.registration.services;
 
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.akrantha.emanager.dtos.Employee;
@@ -15,28 +19,59 @@ import com.akrantha.emanager.dtos.Employee;
 @RunWith(MockitoJUnitRunner.class)
 public class InMemoryTableTest {
 
+    private static final int ID = 21;
+
     @Mock
     private Employee inMemoryPersistableObject;
+
+    @Mock
+    private Map<Integer, Employee> objById;
+
+    @Mock
+    private AtomicInteger id;
 
     private InMemoryTable<Employee> inMemoryTable;
 
     @Before
     public void setup() {
-        inMemoryTable = new InMemoryTable<Employee>();
+        inMemoryTable = new InMemoryTable<Employee>(objById, id);
+        when(id.intValue()).thenReturn(ID);
     }
 
     @Test
     public void insertShouldSetIdOnObject() {
         inMemoryTable.insert(inMemoryPersistableObject);
-        Mockito.verify(inMemoryPersistableObject).setId(Mockito.anyInt());
+        verify(inMemoryPersistableObject).setId(ID);
+    }
+
+    @Test
+    public void insertShouldSavePersistedObjectInMapById() {
+        inMemoryTable.insert(inMemoryPersistableObject);
+        verify(objById).put(inMemoryPersistableObject.getId(), inMemoryPersistableObject);
     }
 
     @Test
     public void insertShouldReturnTheIdOfPersistedObject() {
-        ArgumentCaptor<Integer> idCaptor = ArgumentCaptor.forClass(Integer.class);
-        int id = inMemoryTable.insert(inMemoryPersistableObject);
-        Mockito.verify(inMemoryPersistableObject).setId(idCaptor.capture());
-        MatcherAssert.assertThat(id, Matchers.is(idCaptor.getValue()));
+        assertThat(inMemoryTable.insert(inMemoryPersistableObject), is(ID));
+    }
+
+    @Test
+    public void deleteShouldRemoveFromObjectById() {
+        inMemoryTable.delete(ID);
+        verify(objById).remove(ID);
+    }
+
+    @Test
+    public void getByIdShouldReturnObjectFromMap() {
+        when(objById.get(ID)).thenReturn(inMemoryPersistableObject);
+        assertThat(inMemoryTable.getById(ID), is(inMemoryPersistableObject));
+    }
+
+    @Test
+    public void updateShouldUpdatePersistableObjectInMapById() {
+        when(inMemoryPersistableObject.getId()).thenReturn(ID);
+        inMemoryTable.update(inMemoryPersistableObject);
+        verify(objById).put(ID, inMemoryPersistableObject);
     }
 
 }

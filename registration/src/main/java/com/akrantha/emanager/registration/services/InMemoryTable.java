@@ -6,19 +6,24 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import com.akrantha.emanager.dtos.InMemoryPersistable;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
 
 public class InMemoryTable<T extends InMemoryPersistable> {
 
-    private final AtomicInteger id = new AtomicInteger(0);
+    private final AtomicInteger id;
 
-    private final Map<Integer, T> objById = Maps.newLinkedHashMap();
+    private final Map<Integer, T> objById;
+
+    public InMemoryTable(Map<Integer, T> objById, AtomicInteger id) {
+        this.objById = objById;
+        this.id = id;
+    }
 
     public int insert(T obj) {
-        int objId = id.incrementAndGet();
-        obj.setId(objId);
-        objById.put(objId, obj);
-        return objId;
+        id.incrementAndGet();
+        int idValue = id.intValue();
+        obj.setId(idValue);
+        objById.put(obj.getId(), obj);
+        return idValue;
     }
 
     public T delete(int id) {

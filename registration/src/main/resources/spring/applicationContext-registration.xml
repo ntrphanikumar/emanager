@@ -36,7 +36,14 @@ http://cxf.apache.org/schemas/jaxrs.xsd"
         class="com.akrantha.emanager.registration.services.EmployeeService">
         <constructor-arg>
             <bean
-                class="com.akrantha.emanager.registration.services.InMemoryTable" />
+                class="com.akrantha.emanager.registration.services.InMemoryTable" >
+                <constructor-arg >
+                    <bean class="java.util.LinkedHashMap"/>
+                </constructor-arg>
+                <constructor-arg>
+                    <bean class="java.util.concurrent.atomic.AtomicInteger"/>
+                </constructor-arg>
+            </bean>
         </constructor-arg>
     </bean>
 
