@@ -50,11 +50,6 @@ public class CreateEmployeeSteps extends AbstractEServiceSteps {
                 .getRequestEmployee()));
     }
 
-    @Then("I should get error response with error description as '%message'")
-    public void thenIShouldGetError(String message) {
-        assertThat(getEmployeeSharedData().getError().getDescription(), is(message));
-    }
-
     private void createEmployee(Employee employee) {
         try {
             employee = getEmployeeService().createEmployee(employee);

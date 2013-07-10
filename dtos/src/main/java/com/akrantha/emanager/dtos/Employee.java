@@ -6,6 +6,9 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 @XmlRootElement(name = "Employee")
 public class Employee implements InMemoryPersistable, Serializable {
     private static final long serialVersionUID = -1738373669527745443L;
@@ -65,4 +68,22 @@ public class Employee implements InMemoryPersistable, Serializable {
         this.extn = extn;
     }
 
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(name).append(email).append(extn).append(dob)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Employee)) {
+            return false;
+        }
+        Employee employee = (Employee) obj;
+        if (id > 0 && employee.id > 0) {
+            return employee.id == id;
+        }
+        return new EqualsBuilder().append(name, employee.name).append(email, employee.email)
+                .append(extn, employee.extn).append(dob, employee.dob).isEquals();
+    }
 }
