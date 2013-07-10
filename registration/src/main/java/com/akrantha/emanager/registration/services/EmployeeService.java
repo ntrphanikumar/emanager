@@ -42,7 +42,6 @@ public class EmployeeService {
     }
 
     private void validateEmployeeId(int id) {
-        checkArgument(id > 0, "Id should be positive number");
         checkArgument(employeeTable.getById(id) != null, "No employee exists with id: " + id);
     }
 
