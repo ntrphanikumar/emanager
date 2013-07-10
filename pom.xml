@@ -16,7 +16,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <deploy.version>${project.version}</deploy.version>
-        <junit.version>3.8.1</junit.version>
+        <junit.version>4.8.1</junit.version>
         <mongo.driver.version>2.11.1</mongo.driver.version>
         <cxf.version>2.2.3</cxf.version>
         <guava.version>14.0-rc2</guava.version>
@@ -285,6 +285,11 @@
                 <groupId>org.jbehave</groupId>
                 <artifactId>jbehave-spring</artifactId>
                 <version>${jbehave.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>1.8.4</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

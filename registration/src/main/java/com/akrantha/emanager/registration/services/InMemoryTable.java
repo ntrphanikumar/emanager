@@ -15,9 +15,10 @@ public class InMemoryTable<T extends InMemoryPersistable> {
     private final Map<Integer, T> objById = Maps.newLinkedHashMap();
 
     public int insert(T obj) {
-        obj.setId(id.incrementAndGet());
-        objById.put(obj.getId(), obj);
-        return obj.getId();
+        int objId = id.incrementAndGet();
+        obj.setId(objId);
+        objById.put(objId, obj);
+        return objId;
     }
 
     public T delete(int id) {
