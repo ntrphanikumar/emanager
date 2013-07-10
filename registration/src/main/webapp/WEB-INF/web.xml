@@ -31,5 +31,17 @@
 		<servlet-name>CXFServlet</servlet-name>
 		<url-pattern>/api/*</url-pattern>
 	</servlet-mapping>
+
+    <servlet>
+        <servlet-name>EmployeesServlet</servlet-name>
+        <servlet-class>com.akrantha.emanager.registration.servlets.EmployeesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EmployeesServlet</servlet-name>
+        <url-pattern>/employees</url-pattern>
+    </servlet-mapping>
+
 	
 </web-app>
