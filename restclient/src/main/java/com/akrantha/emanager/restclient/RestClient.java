@@ -11,6 +11,7 @@ import javax.xml.bind.Unmarshaller;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
@@ -75,6 +76,9 @@ public class RestClient {
     private <T> T buildFromResponse(HttpResponse response) {
         Object obj = null;
         try {
+            if (response.getEntity() == null) {
+                return null;
+            }
             obj = unmarshaller.unmarshal(response.getEntity().getContent());
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -99,6 +103,14 @@ public class RestClient {
             return buildFromResponse(httpClient.execute(httpPut));
         } catch (JAXBException e) {
             throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void doDelete(String url) {
+        try {
+            buildFromResponse(httpClient.execute(xmlHeaders(new HttpDelete(apiBaseUrl + url))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -22,5 +22,7 @@ http://www.springframework.org/schema/util/spring-util-3.0.xsd"
     
     <bean class="com.akrantha.emanager.eservice.steps.BeforeSteps" parent="abstractEServiceSteps"/>
     
-    <bean class="com.akrantha.emanager.eservice.steps.GetEmployeeSteps" parent="abstractEServiceSteps"/> 
+    <bean class="com.akrantha.emanager.eservice.steps.GetEmployeeSteps" parent="abstractEServiceSteps"/>
+    
+    <bean class="com.akrantha.emanager.eservice.steps.DeleteEmployeeSteps" parent="abstractEServiceSteps"/> 
 </beans>

@@ -28,4 +28,8 @@ public class EmployeeService {
     public Employee updateEmployee(Employee employee) {
         return restClient.doPut(EMPLOYEES_URL + employee.getId(), employee);
     }
+
+    public void deleteEmployee(int employeeId) {
+        restClient.doDelete(EMPLOYEES_URL + employeeId);
+    }
 }

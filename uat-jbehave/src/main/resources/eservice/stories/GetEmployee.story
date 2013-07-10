@@ -1,4 +1,4 @@
-Create employee story
+Get employee story
 
 Narrative:
 As a resource manager

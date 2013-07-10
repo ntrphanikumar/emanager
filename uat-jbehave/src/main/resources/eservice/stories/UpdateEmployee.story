@@ -1,4 +1,4 @@
-Create employee story
+Update employee story
 
 Narrative:
 As a resource manager
