@@ -21,8 +21,8 @@ public class GetEmployeeSteps extends AbstractEServiceSteps {
 
     @Then("I should get list of all employees")
     public void thenIShouldGetListOfAllEmployees() {
-        MatcherAssert.assertThat(getEmployeeSharedData().getEmployeeCollection().getEmployees(),
-                Matchers.contains(getEmployeeSharedData().getEmployee()));
+        MatcherAssert.assertThat(getEmployeeSharedData().getEmployeeCollection().getEmployees()
+                .contains(getEmployeeSharedData().getEmployee()), Matchers.is(true));
     }
 
     @When("I request for details of an existing employee")
