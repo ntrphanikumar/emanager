@@ -1,7 +1,6 @@
 package com.akrantha.emanager.registration.services;
 
 import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Preconditions.checkNotNull;
 import static org.apache.commons.lang.StringUtils.isNotBlank;
 
 import java.util.List;
@@ -44,13 +43,13 @@ public class EmployeeService {
 
     private void validateEmployeeId(int id) {
         checkArgument(id > 0, "Id should be positive number");
-        checkNotNull(employeeTable.getById(id), "No employee exists with id: " + id);
+        checkArgument(employeeTable.getById(id) != null, "No employee exists with id: " + id);
     }
 
     private void validateEmployee(Employee employee) {
         checkArgument(isNotBlank(employee.getName()), "Employee name cannot be empty");
         checkArgument(isNotBlank(employee.getEmail()), "Employee email cannot be empty");
-        checkNotNull(employee.getDob(), "Date of birth cannot be null");
+        checkArgument(employee.getDob() != null, "Date of birth cannot be null");
     }
 
 }

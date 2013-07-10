@@ -74,4 +74,9 @@ public class InMemoryTableTest {
         verify(objById).put(ID, inMemoryPersistableObject);
     }
 
+    @Test
+    public void getAllShouldReturnAllPersistedObjectsFromObjectByIdMap() {
+        assertThat(inMemoryTable.getAll(), is(objById.values()));
+    }
+
 }
