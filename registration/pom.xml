@@ -2,7 +2,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.akrantha.emanager</groupId>
+        <groupId>com.ntrphanikumar.emanager</groupId>
         <artifactId>emanager</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -10,7 +10,7 @@
     <packaging>war</packaging>
     <dependencies>
         <dependency>
-            <groupId>com.akrantha.emanager</groupId>
+            <groupId>com.ntrphanikumar.emanager</groupId>
             <artifactId>dtos</artifactId>
         </dependency>
         <dependency>
@@ -110,8 +110,8 @@
                 <configuration>
                             <instrumentation>
                                 <excludes>
-                                    <exclude>com/akrantha/emanager/registration/rest/exceptionmapper/*.class</exclude>
-                                    <exclude>com/akrantha/emanager/registration/rest/exceptions/**/*.class</exclude>                                    
+                                    <exclude>com/ntrphanikumar/emanager/registration/rest/exceptionmapper/*.class</exclude>
+                                    <exclude>com/ntrphanikumar/emanager/registration/rest/exceptions/**/*.class</exclude>                                    
                                 </excludes>
                             </instrumentation>
                         </configuration>

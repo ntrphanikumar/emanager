@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="org.apache.commons.lang.time.DateUtils"%>
-<%@page import="com.akrantha.emanager.dtos.Employee"%>
+<%@page import="com.ntrphanikumar.emanager.dtos.Employee"%>
 <%@page import="org.springframework.web.context.support.WebApplicationContextUtils"%>
-<%@page import="com.akrantha.emanager.registration.services.EmployeeService"%>
+<%@page import="com.ntrphanikumar.emanager.registration.services.EmployeeService"%>
 <html lang="en">
 <jsp:include page="headsection.jsp" />
 

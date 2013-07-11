@@ -28,15 +28,15 @@ http://cxf.apache.org/schemas/jaxrs.xsd"
     </jaxrs:server>
 
     <bean id="employeeRestService"
-        class="com.akrantha.emanager.registration.rest.services.EmployeeRestService">
+        class="com.ntrphanikumar.emanager.registration.rest.services.EmployeeRestService">
         <constructor-arg ref="employeeService" />
     </bean>
 
     <bean id="employeeService"
-        class="com.akrantha.emanager.registration.services.EmployeeService">
+        class="com.ntrphanikumar.emanager.registration.services.EmployeeService">
         <constructor-arg>
             <bean
-                class="com.akrantha.emanager.registration.services.InMemoryTable" >
+                class="com.ntrphanikumar.emanager.registration.services.InMemoryTable" >
                 <constructor-arg >
                     <bean class="java.util.LinkedHashMap"/>
                 </constructor-arg>
@@ -54,7 +54,7 @@ http://cxf.apache.org/schemas/jaxrs.xsd"
     <bean id="jacksonMapper" class="org.codehaus.jackson.map.ObjectMapper" />
 
     <bean id="customExceptionMapper"
-        class="com.akrantha.emanager.registration.rest.exceptionmapper.CustomExceptionMapper">
+        class="com.ntrphanikumar.emanager.registration.rest.exceptionmapper.CustomExceptionMapper">
         <constructor-arg ref="errorResponseBuilder" />
         <constructor-arg ref="webApplicationExceptionMapper" />
         <constructor-arg ref="exceptionToCodeMapper" />
@@ -64,15 +64,15 @@ http://cxf.apache.org/schemas/jaxrs.xsd"
         class="org.apache.cxf.jaxrs.impl.WebApplicationExceptionMapper" />
 
     <bean id="errorResponseBuilder"
-        class="com.akrantha.emanager.registration.rest.exceptions.responsebuilder.ErrorResponseBuilder">
+        class="com.ntrphanikumar.emanager.registration.rest.exceptions.responsebuilder.ErrorResponseBuilder">
         <constructor-arg ref="marshaller"/>
     </bean>
     
     <bean id="jaxbContext" class="javax.xml.bind.JAXBContext" factory-method="newInstance">
         <constructor-arg>
             <list>
-                <value type="java.lang.Class">com.akrantha.emanager.dtos.ErrorDTO</value>
-                <value type="java.lang.Class">com.akrantha.emanager.dtos.EmployeeCollection</value>
+                <value type="java.lang.Class">com.ntrphanikumar.emanager.dtos.ErrorDTO</value>
+                <value type="java.lang.Class">com.ntrphanikumar.emanager.dtos.EmployeeCollection</value>
             </list>
         </constructor-arg>
     </bean>
@@ -86,6 +86,6 @@ http://cxf.apache.org/schemas/jaxrs.xsd"
     
 
     <bean id="exceptionToCodeMapper"
-        class="com.akrantha.emanager.registration.rest.exceptionmapper.ExceptionToCodeMapper" />
+        class="com.ntrphanikumar.emanager.registration.rest.exceptionmapper.ExceptionToCodeMapper" />
 
 </beans>

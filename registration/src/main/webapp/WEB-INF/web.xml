@@ -7,7 +7,7 @@
 
 	<context-param>
 		<param-name>webAppRootKey</param-name>
-		<param-value>com.akrantha.emanager.registration</param-value>
+		<param-value>com.ntrphanikumar.emanager.registration</param-value>
 	</context-param>
 
 	<context-param>
@@ -34,7 +34,7 @@
 
     <servlet>
         <servlet-name>EmployeesServlet</servlet-name>
-        <servlet-class>com.akrantha.emanager.registration.servlets.EmployeesServlet</servlet-class>
+        <servlet-class>com.ntrphanikumar.emanager.registration.servlets.EmployeesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 

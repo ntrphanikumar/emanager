@@ -9,20 +9,20 @@ http://www.springframework.org/schema/util
 http://www.springframework.org/schema/util/spring-util-3.0.xsd"
     default-lazy-init="false">
 
-    <bean id="employeeSharedData" class="com.akrantha.emanager.eservice.steps.EmployeeSharedData"/>
+    <bean id="employeeSharedData" class="com.ntrphanikumar.emanager.eservice.steps.EmployeeSharedData"/>
 
-    <bean abstract="true" id="abstractEServiceSteps" class="com.akrantha.emanager.eservice.steps.AbstractEServiceSteps">
+    <bean abstract="true" id="abstractEServiceSteps" class="com.ntrphanikumar.emanager.eservice.steps.AbstractEServiceSteps">
         <constructor-arg ref="employeeService"/>
         <constructor-arg ref="employeeSharedData"/>
     </bean>
 
-    <bean class="com.akrantha.emanager.eservice.steps.CreateEmployeeSteps" parent="abstractEServiceSteps"/>
+    <bean class="com.ntrphanikumar.emanager.eservice.steps.CreateEmployeeSteps" parent="abstractEServiceSteps"/>
     
-    <bean class="com.akrantha.emanager.eservice.steps.UpdateEmployeeSteps" parent="abstractEServiceSteps"/>
+    <bean class="com.ntrphanikumar.emanager.eservice.steps.UpdateEmployeeSteps" parent="abstractEServiceSteps"/>
     
-    <bean class="com.akrantha.emanager.eservice.steps.BeforeSteps" parent="abstractEServiceSteps"/>
+    <bean class="com.ntrphanikumar.emanager.eservice.steps.BeforeSteps" parent="abstractEServiceSteps"/>
     
-    <bean class="com.akrantha.emanager.eservice.steps.GetEmployeeSteps" parent="abstractEServiceSteps"/>
+    <bean class="com.ntrphanikumar.emanager.eservice.steps.GetEmployeeSteps" parent="abstractEServiceSteps"/>
     
-    <bean class="com.akrantha.emanager.eservice.steps.DeleteEmployeeSteps" parent="abstractEServiceSteps"/> 
+    <bean class="com.ntrphanikumar.emanager.eservice.steps.DeleteEmployeeSteps" parent="abstractEServiceSteps"/> 
 </beans>

@@ -1,6 +1,6 @@
-<%@page import="com.akrantha.emanager.dtos.Employee"%>
+<%@page import="com.ntrphanikumar.emanager.dtos.Employee"%>
 <%@page import="org.springframework.web.context.support.WebApplicationContextUtils"%>
-<%@page import="com.akrantha.emanager.registration.services.EmployeeService"%>
+<%@page import="com.ntrphanikumar.emanager.registration.services.EmployeeService"%>
 <%@page import="java.util.List"%>
 
 <!DOCTYPE html>

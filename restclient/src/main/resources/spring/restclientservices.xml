@@ -13,13 +13,13 @@ http://www.springframework.org/schema/util/spring-util-3.0.xsd"
         factory-method="newInstance">
         <constructor-arg>
             <list>
-                <value type="java.lang.Class">com.akrantha.emanager.dtos.ErrorDTO</value>
-                <value type="java.lang.Class">com.akrantha.emanager.dtos.EmployeeCollection</value>
+                <value type="java.lang.Class">com.ntrphanikumar.emanager.dtos.ErrorDTO</value>
+                <value type="java.lang.Class">com.ntrphanikumar.emanager.dtos.EmployeeCollection</value>
             </list>
         </constructor-arg>
     </bean>
 
-    <bean id="restClient" class="com.akrantha.emanager.restclient.RestClient">
+    <bean id="restClient" class="com.ntrphanikumar.emanager.restclient.RestClient">
         <constructor-arg>
             <bean class="org.apache.http.impl.client.DefaultHttpClient" />
         </constructor-arg>
@@ -27,7 +27,7 @@ http://www.springframework.org/schema/util/spring-util-3.0.xsd"
         <constructor-arg ref="jaxbContext"/>
     </bean>
 
-    <bean id="employeeService" class="com.akrantha.emanager.eservice.EmployeeService">
+    <bean id="employeeService" class="com.ntrphanikumar.emanager.eservice.EmployeeService">
         <constructor-arg ref="restClient" />
     </bean>
 </beans>
