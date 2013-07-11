@@ -1,4 +1,4 @@
-package com.ntrphanikumar.emanager.dtos;
+package com.ntrphanikumar.emanager.persistence;
 
 public interface InMemoryPersistable {
     void setId(int id);

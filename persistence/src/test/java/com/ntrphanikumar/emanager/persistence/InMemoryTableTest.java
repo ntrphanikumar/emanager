@@ -1,4 +1,4 @@
-package com.ntrphanikumar.emanager.registration.services;
+package com.ntrphanikumar.emanager.persistence;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -14,28 +14,39 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import com.ntrphanikumar.emanager.dtos.Employee;
-import com.ntrphanikumar.emanager.registration.services.InMemoryTable;
-
 @RunWith(MockitoJUnitRunner.class)
 public class InMemoryTableTest {
+
+    public class InMemoryPersistableObect implements InMemoryPersistable {
+
+        @Override
+        public void setId(int id) {
+
+        }
+
+        @Override
+        public int getId() {
+            return 0;
+        }
+
+    }
 
     private static final int ID = 21;
 
     @Mock
-    private Employee inMemoryPersistableObject;
+    private InMemoryPersistable inMemoryPersistableObject;
 
     @Mock
-    private Map<Integer, Employee> objById;
+    private Map<Integer, InMemoryPersistable> objById;
 
     @Mock
     private AtomicInteger id;
 
-    private InMemoryTable<Employee> inMemoryTable;
+    private InMemoryTable<InMemoryPersistable> inMemoryTable;
 
     @Before
     public void setup() {
-        inMemoryTable = new InMemoryTable<Employee>(objById, id);
+        inMemoryTable = new InMemoryTable<InMemoryPersistable>(objById, id);
         when(id.intValue()).thenReturn(ID);
     }
 

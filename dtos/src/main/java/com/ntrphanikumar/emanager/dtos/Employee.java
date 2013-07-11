@@ -9,6 +9,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import com.ntrphanikumar.emanager.persistence.InMemoryPersistable;
+
 @XmlRootElement(name = "Employee")
 public class Employee implements InMemoryPersistable, Serializable {
     private static final long serialVersionUID = -1738373669527745443L;

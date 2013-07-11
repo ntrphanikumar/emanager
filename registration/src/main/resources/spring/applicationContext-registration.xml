@@ -36,7 +36,7 @@ http://cxf.apache.org/schemas/jaxrs.xsd"
         class="com.ntrphanikumar.emanager.registration.services.EmployeeService">
         <constructor-arg>
             <bean
-                class="com.ntrphanikumar.emanager.registration.services.InMemoryTable" >
+                class="com.ntrphanikumar.emanager.persistence.InMemoryTable" >
                 <constructor-arg >
                     <bean class="java.util.LinkedHashMap"/>
                 </constructor-arg>

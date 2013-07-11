@@ -1,11 +1,10 @@
-package com.ntrphanikumar.emanager.registration.services;
+package com.ntrphanikumar.emanager.persistence;
 
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import com.google.common.collect.Lists;
-import com.ntrphanikumar.emanager.dtos.InMemoryPersistable;
 
 public class InMemoryTable<T extends InMemoryPersistable> {
 

@@ -11,6 +11,10 @@
     <dependencies>
         <dependency>
             <groupId>com.ntrphanikumar.emanager</groupId>
+            <artifactId>persistence</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ntrphanikumar.emanager</groupId>
             <artifactId>dtos</artifactId>
         </dependency>
         <dependency>
@@ -108,13 +112,13 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
                 <configuration>
-                            <instrumentation>
-                                <excludes>
-                                    <exclude>com/ntrphanikumar/emanager/registration/rest/exceptionmapper/*.class</exclude>
-                                    <exclude>com/ntrphanikumar/emanager/registration/rest/exceptions/**/*.class</exclude>                                    
-                                </excludes>
-                            </instrumentation>
-                        </configuration>
+                    <instrumentation>
+                        <excludes>
+                            <exclude>com/ntrphanikumar/emanager/registration/rest/exceptionmapper/*.class</exclude>
+                            <exclude>com/ntrphanikumar/emanager/registration/rest/exceptions/**/*.class</exclude>
+                        </excludes>
+                    </instrumentation>
+                </configuration>
             </plugin>
         </plugins>
         <resources>

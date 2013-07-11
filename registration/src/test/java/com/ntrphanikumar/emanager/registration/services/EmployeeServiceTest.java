@@ -13,8 +13,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.google.common.collect.Lists;
 import com.ntrphanikumar.emanager.dtos.Employee;
-import com.ntrphanikumar.emanager.registration.services.EmployeeService;
-import com.ntrphanikumar.emanager.registration.services.InMemoryTable;
+import com.ntrphanikumar.emanager.persistence.InMemoryTable;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EmployeeServiceTest {
