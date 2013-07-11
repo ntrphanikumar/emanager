@@ -46,7 +46,7 @@ public class UpdateEmployeeSteps extends AbstractEServiceSteps {
     private void updateEmployee(Employee employee) {
         try {
             getEmployeeSharedData().setRequestEmployee(employee);
-            employee = getEmployeeService().updateEmployee(employee);
+            employee = getEmployeeService().updateEmployee(employee.getId(), employee);
             getEmployeeSharedData().setResponseEmployee(employee);
         } catch (RestClientException e) {
             getEmployeeSharedData().setError(e.getErrorDTO());

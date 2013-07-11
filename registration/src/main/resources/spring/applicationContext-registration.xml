@@ -28,7 +28,7 @@ http://cxf.apache.org/schemas/jaxrs.xsd"
     </jaxrs:server>
 
     <bean id="employeeRestService"
-        class="com.ntrphanikumar.emanager.registration.rest.services.EmployeeRestService">
+        class="com.ntrphanikumar.emanager.registration.rest.services.EmployeeRestServiceImpl">
         <constructor-arg ref="employeeService" />
     </bean>
 

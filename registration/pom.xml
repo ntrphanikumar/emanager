@@ -18,6 +18,10 @@
             <artifactId>dtos</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.ntrphanikumar.emanager</groupId>
+            <artifactId>rest-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>

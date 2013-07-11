@@ -27,7 +27,7 @@ http://www.springframework.org/schema/util/spring-util-3.0.xsd"
         <constructor-arg ref="jaxbContext"/>
     </bean>
 
-    <bean id="employeeService" class="com.ntrphanikumar.emanager.eservice.EmployeeService">
+    <bean id="employeeService" class="com.ntrphanikumar.emanager.eservice.EmployeeServiceImpl">
         <constructor-arg ref="restClient" />
     </bean>
 </beans>

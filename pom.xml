@@ -13,6 +13,7 @@
         <module>dtos</module>
         <module>restclient</module>
         <module>persistence</module>
+        <module>rest-api</module>
     </modules>
 
     <properties>
@@ -74,6 +75,11 @@
             <dependency>
                 <groupId>com.ntrphanikumar.emanager</groupId>
                 <artifactId>dtos</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ntrphanikumar.emanager</groupId>
+                <artifactId>rest-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

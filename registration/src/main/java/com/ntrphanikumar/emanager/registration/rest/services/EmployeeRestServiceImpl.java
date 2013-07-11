@@ -13,13 +13,14 @@ import javax.ws.rs.core.MediaType;
 import com.ntrphanikumar.emanager.dtos.Employee;
 import com.ntrphanikumar.emanager.dtos.EmployeeCollection;
 import com.ntrphanikumar.emanager.registration.services.EmployeeService;
+import com.ntrphanikumar.emanager.restapi.EmployeeRestService;
 
 @Path("/employees")
-public class EmployeeRestService {
+public class EmployeeRestServiceImpl implements EmployeeRestService {
 
     private final EmployeeService employeeService;
 
-    public EmployeeRestService(EmployeeService employeeService) {
+    public EmployeeRestServiceImpl(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 

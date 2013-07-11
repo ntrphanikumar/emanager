@@ -12,7 +12,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.ntrphanikumar.emanager.dtos.Employee;
-import com.ntrphanikumar.emanager.registration.rest.services.EmployeeRestService;
+import com.ntrphanikumar.emanager.registration.rest.services.EmployeeRestServiceImpl;
 import com.ntrphanikumar.emanager.registration.services.EmployeeService;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -20,7 +20,7 @@ public class EmployeeRestServiceTest {
 
     private static final int ID = 3;
 
-    private EmployeeRestService employeeRestService;
+    private EmployeeRestServiceImpl employeeRestServiceImpl;
 
     @Mock
     private EmployeeService employeeService;
@@ -30,13 +30,13 @@ public class EmployeeRestServiceTest {
 
     @Before
     public void setup() {
-        employeeRestService = new EmployeeRestService(employeeService);
+        employeeRestServiceImpl = new EmployeeRestServiceImpl(employeeService);
         when(employeeService.getEmployeeById(ID)).thenReturn(employee);
     }
 
     @Test
     public void createEmployeeShouldCallEmployeeServiceToCreateEmployee() {
-        Employee createEmployee = employeeRestService.createEmployee(employee);
+        Employee createEmployee = employeeRestServiceImpl.createEmployee(employee);
         verify(employeeService).createEmployee(employee);
         verify(employee).setId(employeeService.createEmployee(employee));
         assertThat(createEmployee, is(employee));
@@ -44,24 +44,24 @@ public class EmployeeRestServiceTest {
 
     @Test
     public void deleteEmployeeShouldCallEmployeeServiceToDeleteEmployee() {
-        employeeRestService.deleteEmployee(ID);
+        employeeRestServiceImpl.deleteEmployee(ID);
         verify(employeeService).deleteEmployee(ID);
     }
 
     @Test
     public void getEmployeeShouldReturnEmployeeFromEmployeeService() {
-        assertThat(employeeRestService.getEmployee(ID), is(employee));
+        assertThat(employeeRestServiceImpl.getEmployee(ID), is(employee));
     }
 
     @Test
     public void updateEmployeeShouldUpdateEmployeeWithEmployeeService() {
-        assertThat(employeeRestService.updateEmployee(ID, employee), is(employee));
+        assertThat(employeeRestServiceImpl.updateEmployee(ID, employee), is(employee));
         verify(employeeService).updateEmployee(ID, employee);
     }
 
     @Test
     public void getEmployeesShouldReturnEmployeeCollectionFromEmployeeService() {
-        assertThat(employeeRestService.getEmployees().getEmployees(),
+        assertThat(employeeRestServiceImpl.getEmployees().getEmployees(),
                 is(employeeService.getEmployees()));
     }
 }

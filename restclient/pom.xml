@@ -13,6 +13,10 @@
             <artifactId>dtos</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.ntrphanikumar.emanager</groupId>
+            <artifactId>rest-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.2.5</version>
