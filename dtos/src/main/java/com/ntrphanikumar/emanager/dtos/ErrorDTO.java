@@ -6,37 +6,40 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "Error")
 public class ErrorDTO {
 
-    private int errorCode;
+	private int errorCode;
 
-    private String errorMessage;
+	private String errorMessage;
 
-    private String description;
+	private String description;
 
-    @XmlElement(name = "ErrorCode")
-    public int getErrorCode() {
-        return errorCode;
-    }
+	@XmlElement(name = "ErrorCode")
+	public int getErrorCode() {
+		return errorCode;
+	}
 
-    public void setErrorCode(int errorCode) {
-        this.errorCode = errorCode;
-    }
+	public ErrorDTO setErrorCode(int errorCode) {
+		this.errorCode = errorCode;
+		return this;
+	}
 
-    @XmlElement(name = "ErrorMessage")
-    public String getErrorMessage() {
-        return errorMessage;
-    }
+	@XmlElement(name = "ErrorMessage")
+	public String getErrorMessage() {
+		return errorMessage;
+	}
 
-    public void setErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
-    }
+	public ErrorDTO setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+		return this;
+	}
 
-    @XmlElement(name = "Description")
-    public String getDescription() {
-        return description;
-    }
+	@XmlElement(name = "Description")
+	public String getDescription() {
+		return description;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public ErrorDTO setDescription(String description) {
+		this.description = description;
+		return this;
+	}
 
 }

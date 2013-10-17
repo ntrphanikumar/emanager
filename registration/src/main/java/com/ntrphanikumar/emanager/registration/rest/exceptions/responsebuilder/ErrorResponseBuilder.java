@@ -36,7 +36,7 @@ public class ErrorResponseBuilder {
             errorDTOXMLMarshaller.marshal(error, errorXMLWriter);
             return responseBuilder.entity(errorXMLWriter.toString()).build();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException(e);
         }
     }
 

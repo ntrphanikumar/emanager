@@ -11,6 +11,10 @@ public class RestClientException extends RuntimeException {
         super(errorDTO.getErrorMessage());
         this.errorDTO = errorDTO;
     }
+    
+    public RestClientException(String errorMessage) {
+    	this(new ErrorDTO().setErrorCode(400).setErrorMessage(errorMessage).setDescription(errorMessage));
+	}
 
     public ErrorDTO getErrorDTO() {
         return errorDTO;
